@@ -27,11 +27,11 @@ triggers:
 
 ```bash
 # 方式一：作为 opencode skill 安装
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git \
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git \
     ~/.config/opencode/skills/unlimited-ocr
 
 # 方式二：独立使用
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git
 cd unlimited-ocr-skill
 
 # 创建 venv + 安装依赖
@@ -83,7 +83,7 @@ $OCR --check
 ```bash
 # 放到项目目录下
 cd your-project
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git .claude/unlimited-ocr
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git .claude/unlimited-ocr
 bash .claude/unlimited-ocr/scripts/setup.sh
 ```
 

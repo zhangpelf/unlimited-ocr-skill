@@ -12,7 +12,7 @@
 
 ```bash
 # 1. 安装
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git
 cd unlimited-ocr-skill
 bash scripts/setup.sh
 
@@ -64,7 +64,7 @@ $OCR image.png --server https://your-server.com:10000 -o result.md
 
 ```bash
 # 克隆到 opencode skills 目录
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git \
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git \
     ~/.config/opencode/skills/unlimited-ocr
 
 # 初始化一次
@@ -86,10 +86,10 @@ bash ~/.config/opencode/skills/unlimited-ocr/scripts/setup.sh
 ```bash
 # 作为项目级子代理（推荐）
 cd your-project
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git .claude/unlimited-ocr
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git .claude/unlimited-ocr
 
 # 或放到 Claude Code 的全局 skills 目录（如果使用了 oh-my-claudecode）
-git clone https://github.com/zhangpelf/unlimited-ocr-skill.git \
+git clone https://github.com/<your-github-username>/unlimited-ocr-skill.git \
     ~/.claude/skills/unlimited-ocr
 
 # 初始化环境
