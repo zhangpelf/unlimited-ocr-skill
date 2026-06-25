@@ -74,18 +74,46 @@ $OCR --check
 - 输入格式：JPG / PNG / PDF
 - 输出格式：Markdown / 纯文本
 
+## Claude Code 集成
+
+本仓库包含 `.claude/agents/ocr-unlimited.md` 子代理定义，克隆后 Claude Code 自动发现。
+
+### 安装
+
+```bash
+# 放到项目目录下
+cd your-project
+git clone https://github.com/zhangpelf/unlimited-ocr-skill.git .claude/unlimited-ocr
+bash .claude/unlimited-ocr/scripts/setup.sh
+```
+
+### 触发
+
+在 Claude Code 中，用户说"OCR this file"、"提取文字"、"解析 PDF"等时自动调起。
+
+子代理工作流：
+1. 定位 skill 目录
+2. 检查 `.venv/`，未初始化则运行 `setup.sh`
+3. 调用 `ocr.py` 执行 OCR
+4. 读取输出结果返回给用户
+
+---
+
 ## 项目结构
 
 ```
 unlimited-ocr-skill/
-├── SKILL.md                 ← opencode skill 定义
+├── .claude/
+│   └── agents/
+│       └── ocr-unlimited.md  ← Claude Code 子代理定义
+├── SKILL.md                   ← OpenCode skill 触发与文档
 ├── scripts/
-│   ├── setup.sh             ← 一键 venv + 依赖安装
-│   └── ocr.py               ← 主 CLI 入口
+│   ├── setup.sh               ← 一键 venv + 依赖安装
+│   └── ocr.py                 ← 主 CLI 入口
 ├── references/
-│   └── deploy-guide.md      ← 远程 SGLang 服务器部署
-├── README.md                ← 本文件
-└── LICENSE                  ← MIT
+│   └── deploy-guide.md        ← 远程 SGLang 服务器部署
+├── README.md                  ← 本文件
+└── LICENSE                    ← MIT
 ```
 
 ## 注意事项

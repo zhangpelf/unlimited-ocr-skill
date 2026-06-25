@@ -79,6 +79,35 @@ bash ~/.config/opencode/skills/unlimited-ocr/scripts/setup.sh
 
 ---
 
+## Claude Code 集成
+
+克隆到项目目录或 home 目录后，Claude Code 会自动发现子代理：
+
+```bash
+# 作为项目级子代理（推荐）
+cd your-project
+git clone https://github.com/zhangpelf/unlimited-ocr-skill.git .claude/unlimited-ocr
+
+# 或放到 Claude Code 的全局 skills 目录（如果使用了 oh-my-claudecode）
+git clone https://github.com/zhangpelf/unlimited-ocr-skill.git \
+    ~/.claude/skills/unlimited-ocr
+
+# 初始化环境
+bash .claude/unlimited-ocr/scripts/setup.sh
+```
+
+### 触发方式
+
+仓库中的 `.claude/agents/ocr-unlimited.md` 定义了 Claude Code 子代理。克隆后，在 Claude Code 对话中：
+
+- "OCR this file" → 自动调起子代理
+- "帮我识别这张图片的文字" → 自动识别并执行
+- "把 PDF 的文字提取出来" → 自动处理
+
+子代理会自动找到 skill 目录、检查环境、运行 OCR 并返回结果。
+
+---
+
 ## 技术细节
 
 | 属性 | 值 |
@@ -97,14 +126,17 @@ bash ~/.config/opencode/skills/unlimited-ocr/scripts/setup.sh
 
 ```
 unlimited-ocr-skill/
-├── SKILL.md                 # opencode skill 触发与文档
+├── .claude/
+│   └── agents/
+│       └── ocr-unlimited.md   # Claude Code 子代理定义
+├── SKILL.md                   # OpenCode skill 触发与文档
 ├── scripts/
-│   ├── setup.sh             # 环境初始化
-│   └── ocr.py               # 主程序
+│   ├── setup.sh               # 环境初始化
+│   └── ocr.py                 # 主程序
 ├── references/
-│   └── deploy-guide.md      # 远程服务器部署
-├── README.md                # 本文件
-└── LICENSE                  # MIT
+│   └── deploy-guide.md        # 远程服务器部署
+├── README.md                  # 本文件
+└── LICENSE                    # MIT
 ```
 
 ## 许可
